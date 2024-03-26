@@ -1,0 +1,16 @@
+<%- include("header") %>
+
+        <div class="">
+            <div class="profile-img">
+                <img src="<%= locals.Admins.image %>" alt="">
+            </div>
+            <h1><%= locals.Admins.name %></h1>
+            <h4>Email: <%= locals.Admins.email %></h4>
+            <h4>city: <%= locals.Admins.city %></h4>
+            <h4>Gender: <%= locals.Admins.gender %></h4>
+            <h4>Hobby: <%= locals.Admins.hobby %></h4>
+            <h4>Messages: <%= locals.Admins.messages %></h4><br>
+            <a href="/admin/updateAdminRecord?id=<%= locals.Admins._id %>"><i class="fa fa-edit"></i></i></a>
+        </div>
+
+<%- include("footer") %>

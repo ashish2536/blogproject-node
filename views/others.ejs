@@ -1,0 +1,102 @@
+<%- include("header") %>
+
+
+            <!-- HEADER DESKTOP-->
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <% if(locals.flash.success.length > 0 && locals.flash.success) {%>
+                                        <div class="alert alert-success">
+                                             <%= locals.flash.success %> 
+                                        </div>
+                                    <% } %>
+
+                                    <% if(locals.flash.error.length > 0 && locals.flash.error) {%>
+                                        <div class="alert alert-danger">
+                                             <%= locals.flash.error %> 
+                                        </div>
+                                    <% } %>
+                                    <div class="card-header">
+                                        <strong>add slide </strong> 
+                                    </div>
+                                    <div class="card-body card-block">
+                                        <form action="/admin/others/othersInsertData" method="post" class="form-horizontal">
+                                            
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">enter name</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="text-input" name="name" placeholder="enter name" class="form-control">
+                                                    
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="textarea-input" class=" form-control-label">description</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <textarea name="description" id="textarea-input" rows="3" placeholder="description..." class="form-control"></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="select" class=" form-control-label">city country</label>
+                                                </div>
+                                            <% var city=["india", "canada" , "london" , "new york"] %>
+                                                <div class="col-12 col-md-9">
+                                                    <select name="country" id="select" class="form-control">
+                                                        <option value="0">--select--</option>
+                                                        <% for(var c of city){ %>
+                                                         <option value="<%=c%>"><%=c%></option> 
+                                                       <% } %>  
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="select" class=" form-control-label">city Select</label>
+                                                </div>
+
+                                                <% var city=["gujarat", "yukon" , "UK" , "US" ] %>
+                                                <div class="col-12 col-md-9">
+                                                    <select name="city" id="select" class="form-control">
+                                                        <option value="0">--select--</option>
+                                                        <% for(var c of city){ %>
+                                                         <option value="<%=c%>"><%=c%></option> 
+                                                       <% } %>  
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                         
+
+                                            
+
+               
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-dot-circle-o"></i> Submit
+                                                </button>
+                                                <button type="reset" class="btn btn-danger btn-sm">
+                                                    <i class="fa fa-ban"></i> Reset
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+
+<%- include("footer") %>

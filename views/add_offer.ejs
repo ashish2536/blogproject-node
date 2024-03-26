@@ -1,0 +1,75 @@
+<%- include("header") %>
+
+
+            <!-- HEADER DESKTOP-->
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <% if(locals.flash.success.length > 0 && locals.flash.success) {%>
+                                        <div class="alert alert-success">
+                                             <%= locals.flash.success %> 
+                                        </div>
+                                    <% } %>
+
+                                    <% if(locals.flash.error.length > 0 && locals.flash.error) {%>
+                                        <div class="alert alert-danger">
+                                             <%= locals.flash.error %> 
+                                        </div>
+                                    <% } %>
+                                    <div class="card-header">
+                                        <strong>add offer </strong> 
+                                    </div>
+                                    <div class="card-body card-block">
+                                        <form action="/admin/offer/offerInsertData" method="post" class="form-horizontal">
+                                            
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">enter icon name </label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="text-input" name="icon" placeholder="enter icon" class="form-control">
+                                                    
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="email-input" class=" form-control-label">enter title</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="email-input" name="title" placeholder="enter title" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="textarea-input" class=" form-control-label">description</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <textarea name="description" id="textarea-input" rows="3" placeholder="description..." class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                            
+                                           
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-dot-circle-o"></i> Submit
+                                                </button>
+                                                <button type="reset" class="btn btn-danger btn-sm">
+                                                    <i class="fa fa-ban"></i> Reset
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+
+<%- include("footer") %>

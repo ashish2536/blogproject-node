@@ -1,0 +1,187 @@
+<%- include("header") %>
+
+
+    <!-- HEADER DESKTOP-->
+
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <% if(locals.flash.success.length> 0 && locals.flash.success) {%>
+                                <div class="alert alert-success">
+                                    <%= locals.flash.success %>
+                                </div>
+                                <% } %>
+
+                                    <% if(locals.flash.error.length> 0 && locals.flash.error) {%>
+                                        <div class="alert alert-danger">
+                                            <%= locals.flash.error %>
+                                        </div>
+                                        <% } %>
+                                            <div class="card-header">
+                                                <strong>add slider </strong>
+                                            </div>
+                                            <div class="card-body card-block">
+                                                <form action="/admin/adminInsertData" method="post"
+                                                    enctype="multipart/form-data" class="form-horizontal">
+
+                                                    <!-- FIRST NAME -->
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3">
+                                                            <label for="email-input" class=" form-control-label">Enter
+                                                                First name</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+                                                            <input type="text" id="email-input" name="fname"
+                                                                placeholder="first name" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <!-- FIRST NAME CLOSE -->
+
+                                                    <!-- LAST NAME -->
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3">
+                                                            <label for="email-input" class=" form-control-label">Enter
+                                                                Last name</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+                                                            <input type="text" id="email-input" name="lname"
+                                                                placeholder="last name" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <!-- LAST NAME CLOSE -->
+
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3">
+                                                            <label for="email-input" class=" form-control-label">enter
+                                                                Email </label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+                                                            <input type="email" id="email-input" name="email"
+                                                                placeholder="Enter Email" class="form-control">
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3">
+                                                            <label for="password-input"
+                                                                class=" form-control-label">Password</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+                                                            <input type="password" id="password-input" name="password"
+                                                                placeholder="Password" class="form-control">
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3">
+                                                            <label for="select" class=" form-control-label">city
+                                                                Select</label>
+                                                        </div>
+
+                                                        <% var city=["surat", "rajkot" ] %>
+                                                            <div class="col-12 col-md-9">
+                                                                <select name="city" id="select" class="form-control">
+                                                                    <option value="0">--select--</option>
+                                                                    <% for(var c of city){ %>
+                                                                        <option value="<%=c%>">
+                                                                            <%=c%>
+                                                                        </option>
+                                                                        <% } %>
+                                                                </select>
+                                                            </div>
+                                                    </div>
+
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label">gender</label>
+                                                        </div>
+                                                        <div class="col col-md-9">
+                                                            <div class="form-check">
+                                                                <div class="radio">
+                                                                    <label for="radio1" class="form-check-label ">
+                                                                        <input type="radio" id="radio1" name="gender"
+                                                                            value="male" class="form-check-input"> male
+                                                                    </label>
+                                                                </div>
+                                                                <div class="radio">
+                                                                    <label for="radio2" class="form-check-label ">
+                                                                        <input type="radio" id="radio2" name="gender"
+                                                                            value="female" class="form-check-input">
+                                                                        female
+                                                                    </label>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label">hobby</label>
+                                                        </div>
+                                                        <div class="col col-md-9">
+                                                            <div class="form-check-inline form-check">
+                                                                <label for="inline-checkbox1" class="form-check-label ">
+                                                                    <input type="checkbox" id="inline-checkbox1"
+                                                                        name="hobby" value="song"
+                                                                        class="form-check-input">song
+                                                                </label>
+                                                                <label for="inline-checkbox2" class="form-check-label ">
+                                                                    <input type="checkbox" id="inline-checkbox2"
+                                                                        name="hobby" value="game"
+                                                                        class="form-check-input">game
+                                                                </label>
+                                                                <label for="inline-checkbox3" class="form-check-label ">
+                                                                    <input type="checkbox" id="inline-checkbox3"
+                                                                        name="hobby" value="coding"
+                                                                        class="form-check-input">coding
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3">
+                                                            <label for="textarea-input"
+                                                                class=" form-control-label">messages</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+                                                            <textarea name="messages" id="textarea-input" rows="3"
+                                                                placeholder="messages..."
+                                                                class="form-control"></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3">
+                                                            <label for="file-multiple-input"
+                                                                class=" form-control-label">image</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+                                                            <input type="file" id="file-multiple-input" name="image"
+                                                                multiple="" class="form-control-file">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <button type="submit" class="btn btn-primary btn-sm">
+                                                            <i class="fa fa-dot-circle-o"></i> Submit
+                                                        </button>
+                                                        <button type="reset" class="btn btn-danger btn-sm">
+                                                            <i class="fa fa-ban"></i> Reset
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <%- include("footer") %>

@@ -1,0 +1,86 @@
+<%- include('user-header') %>
+    <section class="page-heading wow fadeIn" data-wow-duration="1.5s"
+        style="background-image: url(files/images/01-heading.jpg)">
+        <div class="container">
+            <div class="page-name">
+                <h1>About Us</h1>
+                <span>Lovely layout of heading</span>
+            </div>
+        </div>
+    </section>
+    <section class="team">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Meet The Team</h2>
+                <div class="section-dec"></div>
+            </div>
+
+            <% adminData.map((v,i)=> { %>
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="<%= v.image %>" alt="">
+                        <div class="team-content">
+                            <h3>
+                                <%= v.name %>
+                            </h3>
+                            <span>
+                                <%= v.email %>
+                            </span>
+                            <p>
+                                <%= v.messages %>
+                            </p>
+                        </div>
+                        <div class="social-icons">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <%}) %>
+        </div>
+    </section>
+
+    <section class="clients">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our Clients</h2>
+                <div class="section-dec"></div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-12">
+                <div class="client-item">
+                    <img src="files/images/01-client.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-12">
+                <div class="client-item">
+                    <img src="files/images/02-client.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-12">
+                <div class="client-item">
+                    <img src="files/images/03-client.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-12">
+                <div class="client-item">
+                    <img src="files/images/04-client.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-12">
+                <div class="client-item">
+                    <img src="files/images/05-client.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-12">
+                <div class="client-item">
+                    <img src="files/images/06-client.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <%- include('user-footer') %>

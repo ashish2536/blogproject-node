@@ -1,0 +1,118 @@
+<%- include("header") %>
+
+
+    <!-- END HEADER DESKTOP-->
+
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <% if(locals.flash.success.length> 0 && locals.flash.success) {%>
+                        <div class="alert alert-success">
+                            <%= locals.flash.success %>
+                        </div>
+                        <% } %>
+                            <% if(locals.flash.error.length> 0 && locals.flash.error) {%>
+                                <div class="alert alert-success">
+                                    <%= locals.flash.error %>
+                                </div>
+                                <% } %>
+
+                                    <!-- SEARCHING INPUT -->
+                                    <form>
+                                        <input type="text" name="search" value="<%= search %>">
+                                        <input type="submit" name="searching" value="search">
+                                        <a href="http://localhost:8012/admin/view_admin"
+                                            class="btn btn-outline-danger">Clear Input</a>
+                                    </form>
+                                    <!-- SERACHING INPUT CLOSE -->
+
+                                    <form action="/admin/deleteAllrecord" method="post">
+
+                                        <div class="col-lg-12">
+                                            <div class="table-responsive table--no-card m-b-30">
+                                                <table class="table table-borderless table-striped table-earning">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>
+                                                                <input type="checkbox" id="checkAll">
+                                                                <button><i class="fa fa-trash"
+                                                                        style="color: white;"></i></button>
+                                                            </th>
+                                                            <th>No</th>
+                                                            <th>Name</th>
+                                                            <th>Email</th>
+                                                            <th>Message</th>
+                                                            <th>Image</th>
+                                                            <th>Status</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <% var no=1; for(var ad of viewData){ %>
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="checkbox" value="<%= ad.id%>"
+                                                                        name="adminIds">
+                                                                </td>
+                                                                <td>
+                                                                    <%= no++%>
+                                                                </td>
+                                                                <td>
+                                                                    <%= ad.name %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= ad.email %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= ad.messages %>
+                                                                </td>
+                                                                <td>
+                                                                    <img src="<%= ad.image %>" alt="" height="100">
+                                                                </td>
+                                                                <td>
+                                                                    <% if(ad.status) { %>
+                                                                        <a href="/admin/deactive/<%= ad.id %>"
+                                                                            class="btn btn-success">Active</a>
+                                                                        <% } else { %>
+                                                                            <a href="/admin/active/<%= ad.id %>"
+                                                                                class="btn btn-danger">Deactive</a>
+                                                                            <% } %>
+                                                                </td>
+                                                                <td style="font-size: 25px;">
+                                                                    <a href="/admin/deleteAdminRecord/<%= ad.id %>"><i
+                                                                            class="fa fa-trash"></i></a>
+                                                                    <a href="/admin/updateAdminRecord?id=<%= ad.id %>"><i
+                                                                            class="fa fa-edit"></i></i></a>
+                                                                </td>
+                                                            </tr>
+                                                            <% } %>
+
+                                                                <!-- 1 2 3 4 NEXT PREV -->
+                                                                <tr>
+                                                                    <td colspan="9">
+                                                                        <% for(var i=0; i<totalpage;) { %>
+                                                                            <a href="/admin/view_admin/?page=<%=i%>&search=<%=search%>"
+                                                                                class="btn btn-success">
+                                                                                <%= ++i %>
+                                                                            </a>
+                                                                            <% } %>
+                                                                    </td>
+                                                                </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </form>
+                </div>
+
+
+
+
+                <%- include("footer") %>
+                    <script>
+                        $("#checkAll").click(function () {
+                            $('input:checkbox').not(this).prop('checked', this.checked);
+                        });
+                    </script>

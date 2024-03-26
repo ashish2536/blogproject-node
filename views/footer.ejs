@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="copyright">
+            <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- END MAIN CONTENT-->
+<!-- END PAGE CONTAINER-->
+</div>
+
+</div>
+
+<!-- Jquery JS-->
+<script src="/vendor/jquery-3.2.1.min.js"></script>
+<!-- Bootstrap JS-->
+<script src="/vendor/bootstrap-4.1/popper.min.js"></script>
+<script src="/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+<!-- Vendor JS       -->
+<script src="/vendor/slick/slick.min.js">
+</script>
+<script src="/vendor/wow/wow.min.js"></script>
+<script src="/vendor/animsition/animsition.min.js"></script>
+<script src="/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+</script>
+<script src="/vendor/counter-up/jquery.waypoints.min.js"></script>
+<script src="/vendor/counter-up/jquery.counterup.min.js">
+</script>
+<script src="/vendor/circle-progress/circle-progress.min.js"></script>
+<script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="/vendor/chartjs/Chart.bundle.min.js"></script>
+<script src="/vendor/select2/select2.min.js">
+</script>
+
+<!-- Main JS-->
+<script src="/js/main.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" integrity="sha512-0p3K0H3S6Q4bEWZ/WmC94Tgit2ular2/n0ESdfEX8l172YyQj8re1Wu9s/HT9T/T2osUw5Gx/6pAZNk3UKbESw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script>
+    <% if(locals.flash.success.length > 0 && locals.flash.success) {%>
+        new Noty({
+            type: 'alert',
+            text: '<%= locals.flash.success %>',
+            timeout: 1500,
+            layout: 'topCenter',
+            theme:'light',
+
+
+   
+        }).show();
+    <% } %>
+
+    <% if(locals.flash.error.length > 0 && locals.flash.error) {%>
+        new Noty({
+            type: 'alert',
+            text: '<%= locals.flash.error %>',
+            timeout: 1500,
+            layout: 'topCenter',
+            theme:'nest',
+
+
+   
+        }).show();
+    <% } %>
+</script>
+
+</body>
+
+</html>
+<!-- end document-->

@@ -1,0 +1,60 @@
+<%- include("header") %>
+
+
+    <!-- END HEADER DESKTOP-->
+
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <% if(locals.flash.success.length> 0 && locals.flash.success) {%>
+                        <div class="alert alert-success">
+                            <%= locals.flash.success %>
+                        </div>
+                        <% } %>
+                            <% if(locals.flash.error.length> 0 && locals.flash.error) {%>
+                                <div class="alert alert-success">
+                                    <%= locals.flash.error %>
+                                </div>
+                                <% } %>
+
+
+                                    <div class="col-lg-12">
+                                        <div class="table-responsive table--no-card m-b-30">
+                                            <table class="table table-borderless table-striped table-earning">
+                                                <thead>
+                                                    <tr>
+                                                        <th>no</th>
+                                                        <th>title</th>
+                                                        <th>action</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% var no=1; for(var cd of catData){ %>
+                                                        <tr>
+                                                            <td>
+                                                                <%= no++%>
+                                                            </td>
+                                                            <td>
+                                                                <%= cd.title %>
+                                                            </td>
+
+                                                            <td style="font-size: 25px;">
+                                                                <a href="/admin/deleteAdminRecord/<%= cd.id %>"><i
+                                                                        class="fa fa-trash"></i></a>
+                                                                <a href="/admin/updateAdminRecord?id=<%= cd.id %>"><i
+                                                                        class="fa fa-edit"></i></i></a>
+                                                            </td>
+                                                        </tr>
+                                                        <% } %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                </div>
+
+
+
+                <%- include("footer") %>
